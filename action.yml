@@ -1,6 +1,9 @@
 name: 'Upload a Build Artifact to an S3 Bucket'
 description: 'Upload a build artifact to an S3 bucket'
 author: 'zoispag'
+branding:
+  icon: 'upload-cloud'
+  color: 'yellow'
 inputs:
   access_key_id:
     description: 'Your AWS Access Key ID'
