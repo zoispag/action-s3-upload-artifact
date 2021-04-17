@@ -1,0 +1,32 @@
+{
+  "name": "action-s3-upload-artifact",
+  "version": "1.0.0",
+  "description": "GitHub action to upload a build artifact to an S3 bucket",
+  "main": "dist/index.js",
+  "scripts": {
+    "package": "ncc build index.js",
+    "lint": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoispag/action-s3-upload-artifact.git"
+  },
+  "keywords": [
+    "Actions",
+    "GitHub",
+    "Artifacts",
+    "Upload",
+    "S3"
+  ],
+  "author": "zoispag",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@actions/github": "^4.0.0",
+    "aws-sdk": "^2.888.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3",
+    "prettier": "^2.2.1"
+  }
+}

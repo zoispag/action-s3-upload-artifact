@@ -1,0 +1,25 @@
+name: 'Upload a Build Artifact to an S3 Bucket'
+description: 'Upload a build artifact to an S3 bucket'
+author: 'zoispag'
+inputs:
+  access_key_id:
+    description: 'Your AWS Access Key ID'
+    required: true
+  secret_access_key:
+    description: 'Your AWS Secret Access Key'
+    required: true
+  bucket:
+    description: 'Your AWS bucket name'
+    required: true
+  key:
+    description: 'Artifact destination in bucket'
+    required: true
+  path:
+    description: 'The file to upload'
+    required: true
+outputs:
+  object_path:
+    description: 'Uploaded object path'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
