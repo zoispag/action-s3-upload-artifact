@@ -4,7 +4,7 @@ const path = require('path')
 const AWS = require('aws-sdk')
 const github = require('@actions/github')
 
-const uploadFile = ({s3, fileName, bucket, key}) => {
+const uploadFile = ({ s3, fileName, bucket, key }) => {
   // Read content from the file
   const fileContent = fs.readFileSync(fileName)
 
@@ -27,8 +27,9 @@ const uploadFile = ({s3, fileName, bucket, key}) => {
   }
 }
 
-const makeKey = key => {
+const makeKey = ({ key, root = '' }) => {
   return path.join(
+    root,
     github.context.payload.repository.full_name,
     github.context.sha,
     key,
@@ -47,9 +48,12 @@ try {
 
   const fileName = core.getInput('path')
   const bucket = core.getInput('bucket')
-  const key = makeKey(core.getInput('key'))
+  const key = makeKey({
+    key: core.getInput('key'),
+    root: core.getInput('bucket_root'),
+  })
 
-  uploadFile({s3, fileName, bucket, key})
+  uploadFile({ s3, fileName, bucket, key })
 } catch (error) {
   core.error(err)
   core.setFailed(error.message)

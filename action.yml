@@ -14,6 +14,10 @@ inputs:
   bucket:
     description: 'Your AWS bucket name'
     required: true
+  bucket_root:
+    description: 'Root location to store the artifact'
+    required: false
+    default: ''
   key:
     description: 'Artifact destination in bucket'
     required: true
