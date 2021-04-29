@@ -27,7 +27,7 @@
   "dependencies": {
     "@actions/core": "^1.2.7",
     "@actions/github": "^4.0.0",
-    "aws-sdk": "^2.894.0"
+    "aws-sdk": "^2.895.0"
   },
   "devDependencies": {
     "@types/node": "^15.0.1",
