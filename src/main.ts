@@ -1,7 +1,7 @@
-import { info, setOutput, setFailed, getInput } from '@actions/core'
-import { readFileSync } from 'fs'
-import { makeKey } from './makekey'
+import { getInput, info, setFailed, setOutput } from '@actions/core'
 import { S3 } from 'aws-sdk'
+import { makeKey } from './makekey'
+import { readFileSync } from 'fs'
 
 const uploadFile = ({
   s3,
@@ -28,11 +28,12 @@ const uploadFile = ({
       if (err) {
         throw err
       }
+      /* eslint-disable-next-line i18n-text/no-en */
       info(`Uploaded ${fileName} to ${data.Location}`)
       setOutput('object_path', data.Location)
     })
   } catch ({ message }) {
-    setFailed(message)
+    setFailed(message as string)
   }
 }
 
@@ -55,5 +56,5 @@ try {
 
   uploadFile({ s3, fileName, bucket, key })
 } catch ({ message }) {
-  setFailed(message)
+  setFailed(message as string)
 }

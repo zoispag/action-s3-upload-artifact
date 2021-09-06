@@ -1,5 +1,5 @@
-import { join } from 'path'
 import { context } from '@actions/github'
+import { join } from 'path'
 
 export const makeKey = ({
   key,
